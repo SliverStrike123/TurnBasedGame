@@ -9,6 +9,7 @@ public class Unit {
 	private int maxHp;
 	private int currHp;
 	private int atk;
+	private int spd;
 	private boolean status;
 	private Action[] actions;
 	public String getName() {
@@ -47,6 +48,12 @@ public class Unit {
 	public void setAtk(int atk) {
 		this.atk = atk;
 	}
+	public int getSpd() {
+		return spd;
+	}
+	public void setSpd(int spd) {
+		this.spd = spd;
+	}
 	public boolean isStatus() {
 		return status;
 	}
@@ -58,5 +65,14 @@ public class Unit {
 	}
 	public void setActions(Action[] actions) {
 		this.actions = actions;
+	}
+	public boolean learnAction(Action action, int index) {
+		if(this.actions.length < 4) {
+			this.actions[index] = action;
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }
