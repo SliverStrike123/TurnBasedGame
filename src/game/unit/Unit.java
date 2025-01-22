@@ -1,5 +1,7 @@
 package game.unit;
 
+import java.util.ArrayList;
+
 import game.action.Action;
 
 public class Unit {
@@ -11,7 +13,8 @@ public class Unit {
 	private int atk;
 	private int spd;
 	private boolean status;
-	private Action[] actions;
+	private ArrayList<Action> actions;
+	private boolean isEnemy = false;
 	public String getName() {
 		return name;
 	}
@@ -60,15 +63,22 @@ public class Unit {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	public Action[] getActions() {
+
+	public boolean isEnemy() {
+		return isEnemy;
+	}
+	public void setEnemy(boolean isEnemy) {
+		this.isEnemy = isEnemy;
+	}
+	public ArrayList<Action> getActions() {
 		return actions;
 	}
-	public void setActions(Action[] actions) {
+	public void setActions(ArrayList<Action> actions) {
 		this.actions = actions;
 	}
-	public boolean learnAction(Action action, int index) {
-		if(this.actions.length < 4) {
-			this.actions[index] = action;
+	public boolean learnAction(Action action) {
+		if(this.actions.size() < 4) {
+			this.actions.add(action);
 			return true;
 		}
 		else {
