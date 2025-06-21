@@ -23,6 +23,9 @@ public class Action {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public void testing(){
+		System.out.println("Action testing");
+	}
 	
 	
 	
